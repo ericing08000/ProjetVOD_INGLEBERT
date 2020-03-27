@@ -5,7 +5,7 @@ $pass = 'eric@ing%';
 
 try{
 
-    $db = new PDO('mysql:host=localhost; dbname=projetvod_ericings; port=3308' , $user, $pass);
+    $db = new PDO('mysql:host=localhost; dbname=projetvod_ericing; port=3308' , $user, $pass);
 
     // set the PDO error mode to exception
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
