@@ -1,19 +1,18 @@
 <?php
+try   {
+  $serveur="db5000303640.hosting-data.io";
+  $user = "dbu526574";
+  $dbase = "dbs296627";
+  $pass = "TiS|5+z6";
 
-$user = 'ericing';
-$pass = 'eric@ing%';
-
-try{
-
-    $db = new PDO('mysql:host=localhost; dbname=projetvod_ericing; port=3308' , $user, $pass);
-
-    // set the PDO error mode to exception
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-}catch(PDOException $e)
+  // Je me connecte à ma bdd
+  $bdd = new PDO("mysql:host=$serveur;dbname=$dbase", $user, $pass, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+  return $bdd;
+}catch(Exception $e)
 {
-    print "Erreur :" . $e->getMessage() . "<br*>";
-    die;
+  // En cas d'erreur, un message s'affiche et tout s'arrête
+        die('Erreur : '.$e->getMessage());
 }
+
 
 ?>
