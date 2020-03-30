@@ -1,0 +1,173 @@
+#container{
+    background: #454545;
+    display: flex;
+    height: 80px;
+    text-align: center;
+    
+}
+
+.logo{
+    width: 15%;
+    text-align: left;
+    padding-left: 10px;
+}
+.button{
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;   
+}   
+
+.search{
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+.search ul{
+    background: #8b8b8b;
+    display: flex;
+    align-items: center;
+    height: 42.5px;
+    list-style: none;
+    border-radius: 5px;
+    margin: 10px;
+}
+.search>ul>.input{
+    width: 70%;    
+    margin: 5px;
+    padding: 5PX;
+    
+}
+.search input{
+    height: 25px;
+    width: 100%;
+    
+}
+
+.search>ul>.button{
+    background: #b7262e;
+    width: 30%;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: silver;
+    border-style: solid;
+    margin: 10px;
+    padding: 1PX;
+    list-style: none;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.search>ul>.button:hover{
+    background: #581B1F;
+    border-color:rgb(49, 177, 177);  
+}
+
+.search>ul>li>a{
+    text-decoration: none;
+    color: silver;
+    padding: 5px;
+}
+
+
+.search>ul{
+    width: 100%;
+    padding-left: 0;
+}
+
+
+.button ul{
+  padding-left: 0;
+  display: flex;
+}
+
+.button li{
+    background: #454545;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: silver;
+    border-style: solid;
+    margin: 10px;
+    padding: 10PX;
+    list-style: none;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    position: relative;
+}
+
+.button li:hover{
+    background: #8b8b8b;
+    border-color:rgb(49, 177, 177);
+    
+}
+.button a {
+    text-decoration: none;
+    color: silver;
+    padding: 5px;
+
+}
+
+.button>ul>li>a>img{
+    width: 15px;
+    height: 15px;
+}
+
+ul.drop_langage{
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    top: 40px;
+    right: 0;
+    z-index: 1;
+    
+}
+.drop_langage li{
+    margin: 0;
+    width: 130.285px;
+
+}
+
+.button>ul>li:hover .drop_langage{
+    display: block;
+}
+
+@media all and (max-width :1280px){
+    #container{
+        flex-direction: column;}
+    .logo{
+        width:100%;
+        text-align: center;
+        padding: 10px;
+    }
+    .button{
+        width: 100%;       
+    }
+
+    .button ul{
+        padding-left: 0;
+        flex-direction: column;
+        width: 100%;
+      }
+      .button li{
+          margin-top: 0px;
+          margin-bottom: 1px;
+          margin-left: 20px;
+          margin-right: 20px;
+      }
+    .search{
+        width: 100%;
+        
+    }
+    .search ul{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+}
