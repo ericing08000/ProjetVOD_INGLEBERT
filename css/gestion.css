@@ -1,0 +1,120 @@
+/* Gestion mono page */
+#gestion{
+   background:white; 
+   width: 800px;
+   height: 585px;
+   position: absolute;
+   top: 15%;
+   left: 24%;
+   /* display: none; */
+
+}
+
+/* Barre de navigation */
+.nav{
+    background: #454545;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#gestion img, h3{
+    padding: 20px;
+}
+
+#gestion h3{
+    font-size: 25px;
+    color: white;
+}
+
+.button_gestion{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    border-width: 1px;
+    border-style: solid;
+    border-left: #d0d0d0;
+    border-right: #d0d0d0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
+}
+.button_gestion div{
+    background:#454545;
+    width: 122px;
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.button_gestion a{
+    color: white;
+    text-decoration: none;
+}
+
+.button_gestion div:hover{
+    background: #8b8b8b;
+}
+
+/* Table des films */
+.table_gestion{
+    background: violet;
+    width: 780px;
+    height: 340px;
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+    margin-left: 10px;
+    
+}
+.table_gestion table{
+
+}
+
+
+/* Bouton  Ajouter un film */
+.btn_add_gestion{
+   
+    width: 100%;
+    height: 50px;
+    display: flex;
+    text-align: center;
+    justify-content: end;
+    align-items: center;
+}
+.btn_add_gestion div{
+    background:#454545;
+    width: 122px;
+    padding: 5px;
+    margin-right: 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.btn_add_gestion a{
+    color: white;
+    text-decoration: none;
+}
+
+.btn_add_gestion div:hover{
+    background: #8b8b8b;
+}
+
+/* Footer */
+footer{
+    background: #8b8b8b;
+    width: 100%;
+    height: 45px;
+    align-self: flex-end;
+    
+}

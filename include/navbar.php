@@ -1,6 +1,6 @@
 <!-- Barre de navigation -->
 <nav>
-    <div id="container">
+    <div id="container" class="container">
         <div class="logo">
             <img src="image/logo.png" alt="logo">
         </div>
@@ -8,16 +8,16 @@
             <ul>
                 <li><a href="#"><img src="image/speech.png" alt="langage"> LANGAGE</a>
                     <ul class="drop_langage">
-                        <li class="fr"><a href=""><img src="image/flag_fr.png" alt="accueil"> Français</a></li>
-                        <li class="en"><a href=""><img src="image/flag_en.png" alt="accueil"> Anglais</a></li>
+                        <li class="fr"><a href="#"><img src="image/flag_fr.png" alt="accueil"> Français</a></li>
+                        <li class="en"><a href="#"><img src="image/flag_en.png" alt="accueil"> Anglais</a></li>
                     </ul>
                 </li>
 
-                <li><a href="#"><img src="image/home.png" alt="accueil"> ACCUEIL</a></li>
-                <li><a href="#"><img src="image/film.png" alt="film"> FILMS</a></li>
-                <li><a href="#"><img src="image/categorie.png" alt="catégorie"> CATEGORIE</a></li>
-                <li><a href="#"><img src="image/contact.png" alt="contact"> CONTACT</a></li>
-                <li><a href="#"><img src="image/user.png" alt="connexion"> CONNEXION</a></li>
+                <li class="btn_accueil"><a href=""><img src="image/home.png" alt="accueil"> ACCUEIL</a></li>
+                <li class="btn_film"><a href="#"><img src="image/film.png" alt="film"> FILMS</a></li>
+                <li class="btn_categorie"><a href="#"><img src="image/categorie.png" alt="catégorie"> CATEGORIE</a></li>
+                <li class="btn_contact"><a href="#"><img src="image/contact.png" alt="contact"> CONTACT</a></li>
+                <li class="btn_connect"><a href="#"><img src="image/user.png" alt="connexion"> CONNEXION</a></li>
             </ul>
         </div>
         <div class="search">

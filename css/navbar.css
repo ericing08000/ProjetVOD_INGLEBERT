@@ -109,7 +109,7 @@
 }
 .button a {
     text-decoration: none;
-    color: silver;
+    color: white;
     padding: 5px;
 
 }
@@ -130,12 +130,8 @@ ul.drop_langage{
 .drop_langage li{
     margin: 0;
     width: 130.285px;
-
 }
 
-.button>ul>li:hover .drop_langage{
-    display: block;
-}
 
 @media all and (max-width :1280px){
     #container{
@@ -168,21 +164,6 @@ ul.drop_langage{
         margin-left: 20px;
         margin-right: 20px;
     }
-    
-      
-}
 
-.container{
-    margin: 30px 15% 0 15%;
-}
-
-.container h1{
-    background: royalblue;
-    color: #222;
-    line-height: 20px;
-    padding: 20px;
-}
-
-.container p{
-    padding: 10px;
+          
 }
