@@ -8,32 +8,32 @@ $(document).ready(function(){
         },
         function(){
             $(this).children('ul').slideUp(200);
-        }
-    )
+        })
 })
 
-//Fermer la fenêtre "Gestion"
-$(document).ready(function(){
-    $(".gestion a").click(function(){
-        $('.gestion').hide();
-    })
-})
-//Cacher la fenêtre "Gestion"
-$(document).ready(function(){
-    $(".gestion").hide();
-})
+// //----------Gestion-----------
+// //Fermer la fenêtre "Gestion sur la croix"
+// $(document).ready(function(){
+//     $(".gestion a").click(function(){
+//         $('.gestion').hide();
+//     })
+// })
+// //Cacher la fenêtre "Gestion" au démarrage
+// $(document).ready(function(){
+//     $(".gestion").hide();
+// })
 
-//Fermer la fenêtre "Nous contacter"
+//----------Nous contacter-----------
+//Fermer la fenêtre "Nous contacter sur la croix"
 $(document).ready(function(){
     $("a.close_contact").click(function(){
         $('.contact').hide();  
     })
 })
-//Cacher la fenêtre "Nous contacter"
+//Cacher la fenêtre "Nous contacter" au démarrage
 $(document).ready(function(){
     $(".contact").hide();    
 })
-
 //Afficher la fenêtre "Nous contacter"
 $(document).ready(function(){
     $("li.btn_contact").click(function(){
@@ -41,6 +41,20 @@ $(document).ready(function(){
     }) 
 })
 
-$(document).ready(function(){
-    console.log("jquery est pret !")
-})
+//----------S'identifier-----------
+//Fermer la fenêtre "s'identifier sur la croix"
+// $(document).ready(function(){
+//     $("a.close_identifier").click(function(){
+//         $('.identifier').hide();  
+//     })
+// })
+//Cacher la fenêtre "Nous contacter" au démarrage
+// $(document).ready(function(){
+//     $(".identifier").hide();    
+// })
+//Afficher la fenêtre "s'identifier"
+// $(document).ready(function(){
+//     $("li.btn_connexion").click(function(){
+//         $('.identifier').show();    
+//     }) 
+// })

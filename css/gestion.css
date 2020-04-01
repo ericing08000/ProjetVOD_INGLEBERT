@@ -1,34 +1,38 @@
+
+body{
+    margin: 0;
+    padding:0;
+}
+
 /* Gestion mono page */
 #gestion{
    background:white; 
-   width: 800px;
-   height: 585px;
-   position: absolute;
-   top: 15%;
-   left: 24%;
-   /* display: none; */
-
+   display: flex;
+   flex-direction: column;
+   height: 100vh;
 }
 
 /* Barre de navigation */
 .nav{
     background: #454545;
+    display: flex;
     width: 100%;
     height: 70px;
-    display: flex;
+    
     justify-content: space-between;
     align-items: center;
 }
 
-#gestion img, h3{
+#gestion .close, h3{
     padding: 20px;
 }
+
 
 #gestion h3{
     font-size: 25px;
     color: white;
 }
-
+/* Boutons */
 .button_gestion{
     display: flex;
     text-align: center;
@@ -62,28 +66,60 @@
 .button_gestion div:hover{
     background: #8b8b8b;
 }
+div.active1{
+    background:red;
+}
 
 /* Table des films */
-.table_gestion{
-    background: violet;
-    width: 780px;
-    height: 340px;
+.table_gestion_film{
+    /* background: violet; */
+    width: 99vw;
+    height: 100vh;
     border: 1px;
     border-style: solid;
     border-color: black;
     margin-left: 10px;
-    
 }
-.table_gestion table{
-
+.table_gestion_film .titre_film{
+    text-align: left;
+    padding-left: 10px;   
 }
-
+.table_gestion_film td{
+    text-align: center;    
+}
+img.edit_film, img.delete_film{
+    padding: 0;
+}
+.table_gestion_film .item1_film{
+    width: 500px;
+    text-align: center;
+}
+.table_gestion_film .item2_film{
+    width: 200px;
+    text-align: center;
+}
+.table_gestion_film .item3_film{
+    width: 150px;
+    text-align: center;
+}
+.table_gestion_film .item4_film{
+    width: 450px;
+    text-align: center;
+}
+.table_gestion_film .item5_film{
+    width: 200px;
+    text-align: center;
+}
+.table_gestion_film .item6_film, .item7_film{
+    width: 160px;
+    text-align: center;
+}
 
 /* Bouton  Ajouter un film */
 .btn_add_gestion{
    
     width: 100%;
-    height: 50px;
+    height: 100px;
     display: flex;
     text-align: center;
     justify-content: end;

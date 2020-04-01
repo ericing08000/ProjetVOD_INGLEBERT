@@ -10,7 +10,7 @@
         </div>
     </div>
     <!-- Boutons -->
-    <div class="form">
+    <div class="form_contact">
         <form id="form_contact" method="post" action="traitement/insert_contact.php" target="_blank">
         <fieldset>
             <input placeholder ="Nom" name="nom_contact" type="text" tabindex="1" required autofocus/>
@@ -21,8 +21,8 @@
         <fieldset class="textarea">
             <textarea placeholder ="Message" name="message_contact" cols="40" rows="3" tabindex="3" required></textarea>
         </fieldset>
-        <fieldset class="btn_envoyer">
-            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Envoyer</button>
+        <fieldset class="btn_envoyer_contact">
+            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">ENVOYER</button>
         </fieldset>
         
         </form>
