@@ -1,19 +1,45 @@
 <?php
 session_start();
 
-if(isset($_POST['button']))
-{
-    if($_POST['nom']=="Eric")
-        {
-        $_SESSION['nom']="Eric"; 
-        header("location:gestion.php");
-        }
-    else
-        {
-        $erreur="Votre nom n'est pas valide";
-        }
+//Connection à la base de données en local
+include("include/connect_local.php");
 
-}
+$nom = !empty($_POST['nom']) ? $_POST['nom'] : NULL ;
+$mdp = !empty($_POST['mdp']) ? $_POST['mdp'] : NULL ;
+//echo $nom ." ".$mdp;
+
+$req = $bdd -> prepare ("SELECT * FROM compte WHERE nom = :nom ");
+$req -> execute(array(
+            'nom' => $nom
+));
+$resultat = $req -> fetch();
+// echo $resultat['nom'];
+
+if($resultat['nom'] == $nom)
+    {
+        if($resultat['mdp'] == $mdp)
+        {
+            if(isset($resultat['mdp'])){
+                //echo "tout est ok";   
+                $_SESSION['id_compte'] = $resultat['id_compte'];
+                $_SESSION['nom'] = $nom;
+                //echo $_SESSION['nom']." ".$_SESSION['id_compte'];
+                header("location:gestion.php");
+            }
+                
+        }
+        else
+        {
+            $erreur = "Mot de passe invalide";
+            echo $erreur;
+        }
+    }
+else
+    {
+        $erreur = "compte non trouvé";
+        echo $erreur;
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -41,11 +67,10 @@ if(isset($_POST['button']))
     <div class="form_identifier">
         <form id="form_identifier" method="post" action="identifier.php">
         <fieldset>
-            <label><?php if(isset($erreur)) echo "<a>".$erreur."</a>";?></label>
             <input placeholder ="Nom" name="nom" type="text" tabindex="1" required autofocus/>
         </fieldset>
         <fieldset>
-            <input placeholder ="Mot de passe" name="mdp" type="password" tabindex="2" required/>
+            <input placeholder ="Mot de passe" name="mdp" type="password" tabindex="2"/>
         </fieldset>
         <fieldset class="btn_envoyer_identifier">
             <a href="#"> Créer un compte</a>

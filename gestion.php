@@ -1,9 +1,15 @@
 <?php
 session_start();
-if(!isset($_SESSION['nom']))
-{
-header("Location:identifier.php");
-}
+// if(isset($_SESSION['nom']))
+    if($_SESSION['nom'])
+    {
+        //echo $_SESSION['nom'];
+    }
+    else
+    {
+        header("location:identifier.php");
+    }
+    
 
 ?>
 
@@ -18,20 +24,19 @@ header("Location:identifier.php");
 <body>
 <?/*php echo $_SESSION['nom'];*/?>
 <!--  gestion mono page -->
-<div id="gestion" class="gestion">
+<div id="gestion_film" class="gestion_film">
     <!-- Header -->
     <div class="nav">
         <div>
             <h3>GESTION</h3>
         </div>
-        <div>
-            <a href="javascript:window.close();" title="Fermer Gestion et revenir à l'accueil"><img class="close" src="image/close.png" alt="fermer fenêtre"></a>
-        <?php if(isset($_SESSION['nom'])){unset($_SESSION['nom']);} ?>    
+        <div class="logout">
+            <a href="traitement/logout.php">SE DECONNECTER</a>
         </div>
     </div>
 
     <!-- Boutons -->
-    <div class="button_gestion">
+    <div class="btn_gestion_film">
 
         <div class="active1"><a href="#">FILMS</a></div>
         <div class="active2"><a href="#">CATEGORIE</a></div>
@@ -57,8 +62,8 @@ header("Location:identifier.php");
                 <td>2016</td>
                 <td></td>
                 <td>Lucas Georges</td>
-                <td><a href="" title="Éditer le film"><img class="edit_film" src="image/edit.png" alt="Editer le film"></a></td>
-                <td><a href="" title="Supprimer le film"><img class="delete_film" src="image/delete.png" alt="Supprimer le film"></a></td>
+                <td><a href="#" title="Éditer le film"><img class="edit_film" src="image/edit.png" alt="Editer le film"></a></td>
+                <td><a href="#" title="Supprimer le film"><img class="delete_film" src="image/delete.png" alt="Supprimer le film"></a></td>
             </tr>
         </table>
     </div>
@@ -69,7 +74,6 @@ header("Location:identifier.php");
     </div>
     
     <footer></footer>
-</div>    
+</div> 
 </body>
 </html>
-

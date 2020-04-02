@@ -5,7 +5,7 @@ body{
 }
 
 /* Gestion mono page */
-#gestion{
+#gestion_film{
    background:white; 
    display: flex;
    flex-direction: column;
@@ -23,17 +23,36 @@ body{
     align-items: center;
 }
 
-#gestion .close, h3{
+#gestion_film .close, h3{
     padding: 20px;
 }
 
 
-#gestion h3{
+#gestion_film h3{
     font-size: 25px;
     color: white;
 }
+.logout{
+    background:#8b8b8b;
+    text-align: center;
+    width: 150px;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.logout a{
+    text-decoration: none;
+    
+    color: white;
+}
+
+
 /* Boutons */
-.button_gestion{
+.btn_gestion_film{
     display: flex;
     text-align: center;
     align-items: center;
@@ -47,7 +66,7 @@ body{
     margin-bottom: 5px;
     
 }
-.button_gestion div{
+.btn_gestion_film div{
     background:#454545;
     width: 122px;
     padding: 10px;
@@ -58,12 +77,12 @@ body{
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
 }
-.button_gestion a{
+.btn_gestion_film a{
     color: white;
     text-decoration: none;
 }
 
-.button_gestion div:hover{
+.btn_gestion_film div:hover{
     background: #8b8b8b;
 }
 div.active1{
