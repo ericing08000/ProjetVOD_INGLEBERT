@@ -1,4 +1,4 @@
-
+/* Body */
 body{
     margin: 0;
     padding:0;
@@ -21,11 +21,12 @@ body{
     
     justify-content: space-between;
     align-items: center;
-}
 
-#gestion_film .close, h3{
-    padding: 20px;
+    
 }
+#gestion_film .close, h3{
+    padding: 20px;}
+
 
 
 #gestion_film h3{

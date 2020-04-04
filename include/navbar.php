@@ -1,4 +1,6 @@
-<!-- Barre de navigation -->
+<!--------------------------------->
+<!-- Barre de navigation Accueil -->
+<!--------------------------------->
 <nav>
     <div id="container" class="container">
         <div class="logo">
