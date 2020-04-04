@@ -25,21 +25,19 @@ if($resultat['nom'] == $nom)
                 $_SESSION['nom'] = $nom;
                 //echo $_SESSION['nom']." ".$_SESSION['id_compte'];
                 header("location:gestion.php");
-            }
-                
+            }       
         }
         else
         {
-            $erreur = "Mot de passe invalide";
-            echo $erreur;
+            $erreur_mdp = "Mot de passe invalide";
+            // echo $erreur;
         }
     }
 else
     {
-        $erreur = "compte non trouvé";
-        echo $erreur;
+        $erreur_nom = "Compte non trouvé";
+        // echo $erreur;
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -67,9 +65,17 @@ else
     <div class="form_identifier">
         <form id="form_identifier" method="post" action="identifier.php">
         <fieldset>
+            <?php if(isset($erreur_nom)){
+                echo"<label>$erreur_nom</label>";
+                }?>
+            
             <input placeholder ="Nom" name="nom" type="text" tabindex="1" required autofocus/>
         </fieldset>
         <fieldset>
+            <?php if(isset($erreur_mdp)){
+                    echo"<label>$erreur_mdp</label>";
+                    }?>
+            <label class="mdp"></label>
             <input placeholder ="Mot de passe" name="mdp" type="password" tabindex="2"/>
         </fieldset>
         <fieldset class="btn_envoyer_identifier">
