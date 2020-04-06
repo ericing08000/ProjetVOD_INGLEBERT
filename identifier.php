@@ -3,9 +3,10 @@
 <!-------------------------------->
 <?php
     session_start();
-
-    //Connection à la base de données en local
-    include("include/connect_local.php");
+    //---------------------------------
+    //Connection à la base de données
+    //---------------------------------
+    include("include/connect_bdd.php");
 
     $nom = !empty($_POST['nom']) ? $_POST['nom'] : NULL ;
     $mdp = !empty($_POST['mdp']) ? $_POST['mdp'] : NULL ;
