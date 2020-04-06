@@ -1,0 +1,95 @@
+/* S'identifier */
+#identifier{
+   background:white; 
+   width: 400px;
+   height: 450px;
+   position: absolute;
+   top: 15%;
+   left: 35%;
+   border: black;
+   border-style: solid;
+   border-width: 0.5px;
+   display: flex;
+   flex-direction: column;
+   
+   
+}
+
+/* Barre de navigation */
+.nav_identifier{
+    background: #454545;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#identifier img, h3{
+    padding: 20px;
+}
+
+#identifier h3{
+    font-size: 25px;
+    color: white;
+}
+
+/* Formulaire */
+#form_identifier{
+    width:100%;
+    height: 315px;
+}
+.form_identifier label{
+    color: red;
+}
+.form_identifier{
+    display: flex;
+    margin: 10px;
+}
+input{
+    width: 340px;
+}
+#form_identifier fieldset{
+    margin-bottom: 10px;
+}
+
+
+.btn_envoyer_identifier{
+    display: flex;
+    text-align: center;
+    width: 348px;
+    height: 182px;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.btn_envoyer_identifier button{
+    width: 340px;
+    height: 30px; 
+
+    
+}
+.btn_envoyer_identifier a{
+    color:black;
+    text-decoration: none;
+    margin: 20px;
+    margin-bottom: 80px;
+
+}
+
+/* Footer */
+footer{
+    background: #8b8b8b;
+    width: 100%;
+    height: 45px;
+    align-self: flex-end;
+    
+}
+
+@media all and (max-width:480px){
+    #identifier{
+        left: 6%;
+        top: 15%;
+    }
+}
