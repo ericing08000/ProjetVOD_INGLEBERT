@@ -2,7 +2,7 @@
 
 // On va chercher les connections de la bdd sur connect_bdd.php dans le dossier include :
 //   include ('../include/connect_bdd.php');
-  include ('../include/connect_local.php');
+  include ('../include/connect_bdd.php');
 
 // On vérifie que les «inputs» ne soient pas vides avant d’enregistrer dans la bdd :
   $nom_contact = !empty($_POST['nom_contact']) ? $_POST['nom_contact'] : NULL;
