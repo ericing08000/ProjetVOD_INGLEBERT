@@ -6,7 +6,7 @@
     //---------------------------------
     //Connection à la base de données
     //---------------------------------
-    include("include/connect_bdd.php");
+    include("include/connect_local.php");
 
     $nom = !empty($_POST['nom']) ? $_POST['nom'] : NULL ;
     $mdp = !empty($_POST['mdp']) ? $_POST['mdp'] : NULL ;

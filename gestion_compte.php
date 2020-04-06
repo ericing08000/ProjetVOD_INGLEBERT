@@ -66,7 +66,7 @@
                     </tr>
                 
                     <?php
-                        include ('include/connect_bdd.php');
+                        include ('include/connect_local.php');
                             //----------------------------------
                             //------ Requête pour la suppression
                             //----------------------------------
