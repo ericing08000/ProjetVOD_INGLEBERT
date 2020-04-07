@@ -1,8 +1,6 @@
 <!------------------------------------>
 <!--  Se déconnecter de gestion -->
 <!------------------------------------>
-<link rel="stylesheet" href="../css/deconnect_gestion.css">
-
 <div id="deconnect_gestion" class="deconnect_gestion">
     <!------------------------------------>
     <!-- Barre de navigation -->
@@ -12,7 +10,7 @@
             <h3>SE DÉCONNECTER</h3>
         </div>
         <div>
-            <a class="close_deconnect_gestion" href="#"><img src="../image/close.png" alt="fermer fenêtre"></a>
+            <a class="close_deconnect_gestion" href="gestion.php" title="Fermer Se déconnecter et revenir à Gestion"><img src="image/close.png" alt="fermer fenêtre"></a>
         </div>
     </div>
 
@@ -25,9 +23,9 @@
                 <p>Voulez-vous vraiment vous déconnecter ?</p>
             </fieldset>
             
-            <fieldset class="btn_envoyer_deconnect_gestion">
-                <button name="annuler" type="button" value="Annuler">ANNULER</button>
-                <button name="valider" type="button" value="Valider">VALIDER</button>
+            <fieldset class="btn_deconnect_gestion">
+                <button class="annule_gestion"name="annuler" type="button" value="Annuler">ANNULER</button>
+                <button name="valider" type="submit" value="Valider">VALIDER</button>
             </fieldset>
         </form>
     </div>

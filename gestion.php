@@ -21,6 +21,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/gestion.css">
+        <link rel="stylesheet" href="css/deconnect_gestion.css">
         <title>Gestion : <?php echo "Bienvenue ".$_SESSION['nom'];?></title>
     </head>
 
@@ -124,6 +125,12 @@
         <footer></footer>
     
     </div> 
+
+    <!-------------------------------->
+    <!-- scripts -->
+    <!-------------------------------->
+    <script src="js/jquery.js"></script>
+    <script src="js/script_deconnect.js"></script>
 </body>
 </html>
 

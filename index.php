@@ -7,10 +7,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="sass/css/style.css">
-        <link rel="stylesheet" href="sass/css/navbar.css">
-        <link rel="stylesheet" href="sass/css/contact.css">
-        <link rel="stylesheet" href="sass/deconnect_gestion.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/navbar.css">
+        <link rel="stylesheet" href="css/contact.css">
+        <link rel="stylesheet" href="deconnect_gestion.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ProjetVOD</title>
     </head>
