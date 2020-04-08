@@ -1,9 +1,18 @@
 <!-------------------------------->
 <!-- Vérification de la session -->
 <!-------------------------------->
-<?php
+<?php  
     session_start();
-    // if(isset($_SESSION['nom']))
+    
+if(isset($_GET['deconnect']))
+    echo $_GET['deconnect'];
+    if(isset($_GET['deconnect']) == 'ok'){
+    $_session = array();
+        session_destroy();
+        header("location:identifier.php");
+}
+
+//if(isset($_SESSION['nom']))
     if($_SESSION['nom'])
     {
         //echo $_SESSION['nom'];
@@ -14,6 +23,7 @@
     }
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -27,6 +37,8 @@
 
 <body>
 
+
+
     <!------------------------------>
     <!--  Gestion table film -->
     <!------------------------------>
@@ -39,7 +51,7 @@
                 <h3>GESTION : FILM</h3>
             </div>
             <div class="logout">
-                <a href="traitement/logout.php">SE DECONNECTER</a>
+                <a href="#">SE DECONNECTER</a>
             </div>
         </div>
 
@@ -118,6 +130,7 @@
             </div>
         </div>
 
+        
 
         <!------------------------------>
         <!-- Footer -->
@@ -125,6 +138,7 @@
         <footer></footer>
     
     </div> 
+    
 
     <!-------------------------------->
     <!-- scripts -->
@@ -134,3 +148,4 @@
 </body>
 </html>
 
+<?php include ("traitement/deconnect_gestion.php");?>

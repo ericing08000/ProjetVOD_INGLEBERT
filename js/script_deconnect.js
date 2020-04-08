@@ -10,12 +10,13 @@ $(document).ready(function(){
     })
     $(".annule_gestion").click(function(){
         $('.deconnect_gestion').hide();
-    })
+    })    
 })
 
 //Cacher la fenêtre 
 $(document).ready(function(){
-    $(".deconnect_gestion").hide();       
+    $(".deconnect_gestion").hide(); 
+         
 })
 
 //Afficher la fenêtre 

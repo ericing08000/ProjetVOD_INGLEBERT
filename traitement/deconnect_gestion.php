@@ -1,3 +1,7 @@
+
+
+<link rel="stylesheet" href="../css/deconnect_gestion.css">
+    
 <!------------------------------------>
 <!--  Se déconnecter de gestion -->
 <!------------------------------------>
@@ -24,8 +28,8 @@
             </fieldset>
             
             <fieldset class="btn_deconnect_gestion">
-                <button class="annule_gestion"name="annuler" type="button" value="Annuler">ANNULER</button>
-                <button name="valider" type="submit" value="Valider">VALIDER</button>
+                <a href="gestion.php"><button class="annule_gestion" name="annuler" type="button">ANNULER</button></a>
+                <a href="?deconnect=ok"><button class="valide_gestion" name="valider" type="button">VALIDER</button></a>
             </fieldset>
         </form>
     </div>
@@ -35,4 +39,3 @@
     <!------------------------->
     <footer></footer>
 
-</div>
