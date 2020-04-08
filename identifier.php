@@ -10,43 +10,50 @@
 
     $nom = !empty($_POST['nom']) ? $_POST['nom'] : NULL ;
     $mdp = !empty($_POST['mdp']) ? $_POST['mdp'] : NULL ;
+   
     //echo $nom ." ".$mdp;
 
     //---------------------------------
     //-- Requête paramétrée --
     //---------------------------------
     $req = $bdd -> prepare ("SELECT * FROM compte WHERE nom = :nom ");
+    
         $req -> execute(array(
                     'nom' => $nom
+                    
         ));
         $resultat = $req -> fetch();
-        // echo $resultat['nom'];
-           
+
     //---------------------------------
     //-- Conditions selon résultat --
     //---------------------------------
     if($resultat['nom'] == $nom)
-        {
+        {  
+
             if($resultat['mdp'] == $mdp)
             {
-                if(isset($resultat['mdp'])){
-                    //echo "tout est ok";   
-                    $_SESSION['id_compte'] = $resultat['id_compte'];
-                    $_SESSION['nom'] = $nom;
-                    //echo $_SESSION['nom']." ".$_SESSION['id_compte'];
-                    header("location:gestion.php");
+                if(isset($resultat['mdp']))
+                {   //echo "tout est ok";   
+                                    
+                        if($resultat['id_typecompte'] == 1) {
+                            $_SESSION['id_compte'] = $resultat['id_compte'];
+                            $_SESSION['nom'] = $nom;
+                            header("location:gestion.php");    
+                        }
+                        else
+                        {
+                            header("location:index.php?nom=".$resultat['nom']."");
+                        } 
                 }       
             }
             else
             {
-                $erreur_mdp = "Mot de passe invalide";
-                
+                $erreur_mdp = "Mot de passe invalide";    
             }
         }
         else
             {
-                $erreur_nom = "Compte non trouvé";
-                
+                $erreur_nom = "Compte non trouvé";   
             }
 ?>
 
@@ -74,7 +81,7 @@
                 <h3>S'IDENTIFIER</h3>
             </div>
             <div>
-                <a class="close_identifier" href="javascript:window.close();" title="Fermer S'identifier et revenir à l'accueil"><img src="image/close.png" alt="fermer fenêtre"></a>
+                <a class="close_identifier" href="index.php" title="Fermer S'identifier et revenir à l'accueil"><img src="image/close.png" alt="fermer fenêtre"></a>
             </div>
         </div>
 
@@ -99,7 +106,7 @@
             </fieldset>
             <fieldset class="btn_envoyer_identifier">
                 <a href="#"> Créer un compte</a>
-                <button name="button" type="submit" value="envoyer">ENTRER</button>
+                <a href="?nom=<?php echo $resultat['nom'];?>"><button class="entrer"name="button" type="submit" value="">ENTRER</button></a>
             </fieldset>
             
             </form>

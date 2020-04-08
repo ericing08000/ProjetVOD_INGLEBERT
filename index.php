@@ -1,6 +1,12 @@
 <!------------------------------------>
 <!-- ProjetVOD Fil-rouge 24/03/2020 -->
 <!------------------------------------>
+<?php
+
+if(!isset($_GET['nom']))
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,10 +18,11 @@
         <link rel="stylesheet" href="css/contact.css">
         <link rel="stylesheet" href="deconnect_gestion.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ProjetVOD</title>
+       
+        <title>ProjetVOD <?php if(isset($_GET['nom'])) echo ": Bienvenue ".$_GET['nom'];?></title>
     </head>
 
-<body id="body">
+<body id="body" class="accueil">
     <!-------------------------------->
     <!-- Barre de navigation -->
     <!-------------------------------->

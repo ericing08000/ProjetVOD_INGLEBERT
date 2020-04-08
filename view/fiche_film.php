@@ -5,7 +5,7 @@
     include ('../include/connect_local.php');
 
     if(isset($_GET["nom_film"]))
-    echo $_GET['nom_film'];
+    // echo $_GET['nom_film'];
 
     //-------------------------------------
     //Requête avec alias et GET=nom_film---

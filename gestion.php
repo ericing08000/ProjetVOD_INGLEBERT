@@ -5,17 +5,17 @@
     session_start();
     
 if(isset($_GET['deconnect']))
-    echo $_GET['deconnect'];
+    
     if(isset($_GET['deconnect']) == 'ok'){
     $_session = array();
         session_destroy();
-        header("location:identifier.php");
+        header("location:index.php");
 }
 
 //if(isset($_SESSION['nom']))
     if($_SESSION['nom'])
     {
-        //echo $_SESSION['nom'];
+       //echo $_SESSION['nom'];
     }
     else
     {
@@ -35,8 +35,8 @@ if(isset($_GET['deconnect']))
         <title>Gestion : <?php echo "Bienvenue ".$_SESSION['nom'];?></title>
     </head>
 
-<body>
 
+<body>
 
 
     <!------------------------------>
@@ -54,7 +54,7 @@ if(isset($_GET['deconnect']))
                 <a href="#">SE DECONNECTER</a>
             </div>
         </div>
-
+        
         <!------------------------------>
         <!-- Boutons -->
         <!------------------------------>
@@ -109,8 +109,8 @@ if(isset($_GET['deconnect']))
                                 <td><?= $donnees['date_sortie_film']; ?></td>
                                 <td><img class="photo_film" src="image/<?= $donnees['photo_film']; ?>" alt="photo film"> </td>
                                 <td><?= $donnees['nom_realisateur']; ?></td>
-                                <td><a href="view/fiche_film.php?nom_film=<?php echo $donnees['nom_film'] ?>" title="Éditer le film"><img class="edit_film" src="image/edit.png" alt="Editer le film"></a></td>
-                                <td><a href="gestion.php?nom_film=<?php echo $donnees['nom_film']; ?> &supp=ok" title="Supprimer le film"><img class="delete_film" src="image/delete.png" alt="Supprimer le film"></a></td>
+                                <td><a href="view/fiche_film.php?nom_film=<?php echo $donnees['nom_film'];?>" title="Éditer le film"><img class="edit_film" src="image/edit.png" alt="Editer le film"></a></td>
+                                <td><a href="gestion.php?nom_film=<?php echo $donnees['nom_film'];?> &supp=ok" title="Supprimer le film"><img class="delete_film" src="image/delete.png" alt="Supprimer le film"></a></td>
                             </tr>
                     
 
@@ -138,6 +138,7 @@ if(isset($_GET['deconnect']))
         <footer></footer>
     
     </div> 
+
     
 
     <!-------------------------------->
