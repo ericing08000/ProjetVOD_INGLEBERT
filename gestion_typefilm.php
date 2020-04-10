@@ -37,8 +37,8 @@
             <div>
                 <h3>GESTION : TYPE DE FILM</h3>
             </div>
-            <div class="logout">
-                <a href="traitement/logout.php">SE DECONNECTER</a>
+            <div class="logout_type">
+                <a href="#">SE DECONNECTER</a>
             </div>
         </div>
 

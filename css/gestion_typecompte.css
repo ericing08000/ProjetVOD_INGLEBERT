@@ -35,7 +35,7 @@ body{
     font-size: 25px;
     color: white;
 }
-.logout{
+.logout_typecompte{
     background:#8b8b8b;
     text-align: center;
     width: 150px;
@@ -47,7 +47,7 @@ body{
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
 }
-.logout a{
+.logout_typecompte a{
     text-decoration: none;
     
     color: white;

@@ -86,8 +86,8 @@ if(isset($_GET['deconnect']))
                             //----------------------------------
                             //------ Requête pour la suppression
                             //----------------------------------
-                            if(isset($_GET['supp'])) 
-                            $bdd -> exec ("DELETE FROM film WHERE nom_film ='".$_GET['nom_film']."'");
+                            // if(isset($_GET['supp'])) 
+                            // $bdd -> exec ("DELETE FROM film WHERE nom_film ='".$_GET['nom_film']."'");
 
                             //----------------------------------
                             //------ Requête de liste
@@ -145,7 +145,7 @@ if(isset($_GET['deconnect']))
     <!-- scripts -->
     <!-------------------------------->
     <script src="js/jquery.js"></script>
-    <script src="js/script_deconnect.js"></script>
+    <script src="js/deconnect_gestion.js"></script>
 </body>
 </html>
 

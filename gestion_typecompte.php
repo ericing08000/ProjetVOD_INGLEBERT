@@ -1,19 +1,19 @@
 <!-------------------------------->
 <!-- Vérification de la session -->
 <!-------------------------------->
-<?php
-    session_start();
-    // if(isset($_SESSION['nom']))
-    if($_SESSION['nom'])
-    {
-        //echo $_SESSION['nom'];
-    }
-    else
-    {
-        header("location:identifier.php");
-    }
+    <?php
+        session_start();
+        // if(isset($_SESSION['nom']))
+        if($_SESSION['nom'])
+        {
+            //echo $_SESSION['nom'];
+        }
+        else
+        {
+            header("location:identifier.php");
+        }
 
-?>
+    ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -21,6 +21,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/gestion_typecompte.css">
+        <link rel="stylesheet" href="css/deconnect_gestion.css">
+        <link rel="stylesheet" href="css/del_typecompte.css">
         <title>Gestion : <?php echo "Bienvenue ".$_SESSION['nom'];?></title>
     </head>
 
@@ -37,8 +39,8 @@
             <div>
                 <h3>GESTION : TYPE COMPTE</h3>
             </div>
-            <div class="logout">
-                <a href="traitement/logout.php">SE DECONNECTER</a>
+            <div class="logout_typecompte">
+                <a href="#">SE DECONNECTER</a>
             </div>
         </div>
 
@@ -115,7 +117,17 @@
         <!------------------------------>
         <footer></footer>
     
-    </div> 
+    </div>
+
+    <!-------------------------------->
+    <!-- scripts -->
+    <!-------------------------------->
+    <script src="js/jquery.js"></script>
+    <script src="js/del_typecompte.js"></script>
+    <script src="js/deconnect_gestion.js"></script>
+
 </body>
 </html>
+<?php include ("traitement/del_typecompte.php");?>
+<?php include ("traitement/deconnect_gestion.php");?>
 

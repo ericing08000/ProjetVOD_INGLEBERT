@@ -38,7 +38,7 @@
                 <h3>GESTION : COMPTE</h3>
             </div>
             <div class="logout">
-                <a href="traitement/logout.php">SE DECONNECTER</a>
+                <a href="#">SE DECONNECTER</a>
             </div>
         </div>
 

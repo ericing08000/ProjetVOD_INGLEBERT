@@ -1,7 +1,5 @@
 
 
-<link rel="stylesheet" href="../css/deconnect_gestion.css">
-    
 <!------------------------------------>
 <!--  Se déconnecter de gestion -->
 <!------------------------------------>

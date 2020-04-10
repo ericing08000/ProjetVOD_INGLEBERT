@@ -1,6 +1,18 @@
 <!--------------------------------->
 <!-- Barre de navigation Accueil -->
 <!--------------------------------->
+<?php
+if(isset($_GET['nom']))
+    $connect;
+        if(isset($_GET['nom'])){
+            $connect = $_GET['nom'];
+        }
+        else
+        {
+            $connect = "CONNEXION";
+        }
+
+?>
 <nav>
     <div id="container" class="container">
         <div class="logo">
@@ -19,7 +31,7 @@
                 <li class="btn_film"><a href="#"><img src="image/film.png" alt="film"> FILMS</a></li>
                 <li class="btn_categorie"><a href="#"><img src="image/categorie.png" alt="catégorie"> CATEGORIE</a></li>
                 <li class="btn_contact"><a href="#"><img src="image/contact.png" alt="contact"> CONTACT</a></li>
-                <li class="btn_connexion"><a href="identifier.php"><img src="image/user.png" alt="connexion"> CONNEXION</a></li>
+                <li class="btn_connexion"><a href="identifier.php"><img src="image/user.png" alt="connexion"> <?php echo $connect?></a></li>
                 <li class="btn_gestion"><a href="gestion.php">GESTION</a></li>
             </ul>
         </div>
