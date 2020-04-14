@@ -13,6 +13,7 @@ if(isset($_GET['nom']))
         }
 
 ?>
+
 <nav>
     <div id="container" class="container">
         <div class="logo">

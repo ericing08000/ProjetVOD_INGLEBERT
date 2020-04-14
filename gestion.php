@@ -4,13 +4,12 @@
 <?php  
     session_start();
     
-if(isset($_GET['deconnect']))
-    
+    //Vérification pour se deconnecter et revenir à l'accueil
     if(isset($_GET['deconnect']) == 'ok'){
     $_session = array();
         session_destroy();
         header("location:index.php");
-}
+    }
 
 //if(isset($_SESSION['nom']))
     if($_SESSION['nom'])
@@ -22,6 +21,19 @@ if(isset($_GET['deconnect']))
         header("location:identifier.php");
     }
 
+    $search = ""; 
+
+    if(empty($_GET['nom_film'])) {
+        $search = "Rechercher";
+    }
+    else
+    {
+        if(!empty($_GET['nom_film']))
+        $search = "Afficher tout";
+    } 
+
+            
+    
 ?>
 
 
@@ -30,6 +42,7 @@ if(isset($_GET['deconnect']))
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/navbar_gestion.css">
         <link rel="stylesheet" href="css/gestion.css">
         <link rel="stylesheet" href="css/deconnect_gestion.css">
         <title>Gestion : <?php echo "Bienvenue ".$_SESSION['nom'];?></title>
@@ -38,33 +51,21 @@ if(isset($_GET['deconnect']))
 
 <body>
 
-
     <!------------------------------>
     <!--  Gestion table film -->
     <!------------------------------>
     <div id="gestion_film" class="gestion_film">
+
         <!------------------------------>
         <!-- Barre de navigation -->
         <!------------------------------>
-        <div class="nav">
-            <div>
-                <h3>GESTION : FILM</h3>
-            </div>
-            <div class="logout">
-                <a href="#">SE DECONNECTER</a>
-            </div>
-        </div>
-        
-        <!------------------------------>
-        <!-- Boutons -->
-        <!------------------------------>
-        <div class="btn_gestion_film">
-            <div class="active1"><a href="gestion.php">Film</a></div>
-            <div class="active2"><a href="gestion_typefilm.php">Type de film</a></div>
-            <div class="active3"><a href="gestion_compte.php">Compte</a></div>
-            <div class="active4"><a href="gestion_typecompte.php">Type de compte</a></div>
-        </div>
+        <?php include('include/navbar_gestion.php');?>  
 
+            <form class="search_film" method="get" action="<?php echo $_SERVER['PHP_SELF'];?>">
+                <label for=""><input type="text" name="nom_film"/></label>
+                <button type="submit" name="search" value="ok" ><?php echo $search ;?></button>
+            </form>
+            
         <!------------------------------>
         <!-- La table film -->
         <!------------------------------>
@@ -84,25 +85,36 @@ if(isset($_GET['deconnect']))
                     <?php
                         include ('include/connect_local.php');
                             //----------------------------------
-                            //------ Requête pour la suppression
+                            //---Requête pour la suppression----
                             //----------------------------------
                             // if(isset($_GET['supp'])) 
                             // $bdd -> exec ("DELETE FROM film WHERE nom_film ='".$_GET['nom_film']."'");
 
                             //----------------------------------
+                            //---Requête pour la recherche------
+                            //----------------------------------
+                            
+                            if(isset($_GET['nom_film']))
+                            $req = $bdd->prepare("SELECT f.nom_film, r.nom_realisateur,t.type_film,f.date_sortie_film, f.photo_film FROM film as f,realisateur as r, type_film as t WHERE f.id_realisateur = r.id_realisateur AND f.id_typefilm = t.id_typefilm AND nom_film LIKE '%".$_GET['nom_film']."%' ORDER BY nom_film ");
+                                                        
+                            else
+                            
+                            //----------------------------------
                             //------ Requête de liste
                             //----------------------------------
+                           
                             $req = $bdd->prepare("SELECT f.nom_film, r.nom_realisateur,t.type_film,f.date_sortie_film, f.photo_film FROM film as f,realisateur as r, type_film as t WHERE f.id_realisateur = r.id_realisateur AND f.id_typefilm = t.id_typefilm ORDER BY nom_film");
                             $req -> execute();
-
+                           
                             //----------------------------------
                             // Boucle pour remplir la table film
                             //----------------------------------
                             while($donnees = $req->fetch()){
                             //Afficher le résultat de la requête   
                             //echo $donnees['nom_film'];
+                            
+                    
                     ?>
-
                             <tr>
                                 <td class="titre_film"><?= $donnees['nom_film']; ?></td>
                                 <td><?= $donnees['type_film']; ?></td>
@@ -112,10 +124,10 @@ if(isset($_GET['deconnect']))
                                 <td><a href="view/fiche_film.php?nom_film=<?php echo $donnees['nom_film'];?>" title="Éditer le film"><img class="edit_film" src="image/edit.png" alt="Editer le film"></a></td>
                                 <td><a href="gestion.php?nom_film=<?php echo $donnees['nom_film'];?> &supp=ok" title="Supprimer le film"><img class="delete_film" src="image/delete.png" alt="Supprimer le film"></a></td>
                             </tr>
-                    
+                            
 
-                    <?php   }   ?>
-
+                    <?php   }   ?> 
+                            
                 </table>
                 
             </div>

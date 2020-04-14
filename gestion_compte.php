@@ -3,6 +3,14 @@
 <!-------------------------------->
 <?php
     session_start();
+    
+    //Vérification pour se deconnecter et revenir à l'accueil
+    if(isset($_GET['deconnect']) == 'ok'){
+        $_session = array();
+            session_destroy();
+            header("location:index.php");
+    }
+
     // if(isset($_SESSION['nom']))
     if($_SESSION['nom'])
     {
@@ -13,6 +21,17 @@
         header("location:identifier.php");
     }
 
+    $search = ""; 
+
+    if(empty($_GET['nom'])) {
+        $search = "Rechercher";
+    }
+    else
+    {
+        if(!empty($_GET['nom']))
+        $search = "Afficher tout";
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +39,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/navbar_gestion.css">
         <link rel="stylesheet" href="css/gestion_compte.css">
+        <link rel="stylesheet" href="css/deconnect_gestion.css">
         <title>Gestion : <?php echo "Bienvenue ".$_SESSION['nom'];?></title>
     </head>
 
@@ -30,28 +51,16 @@
     <!--  Gestion table compte -->
     <!----------------------------------->
     <div id="gestion_compte" class="gestion_compte">
+        
         <!------------------------------>
         <!-- Barre de navigation -->
         <!------------------------------>
-        <div class="nav">
-            <div>
-                <h3>GESTION : COMPTE</h3>
-            </div>
-            <div class="logout">
-                <a href="#">SE DECONNECTER</a>
-            </div>
-        </div>
-
-        <!------------------------------>
-        <!-- Boutons -->
-        <!------------------------------>
-        <div class="btn_gestion_compte">
-            <div class="active1"><a href="gestion.php">Film</a></div>
-            <div class="active2"><a href="gestion_typefilm.php">Type de film</a></div>
-            <div class="active3"><a href="gestion_compte.php">Compte</a></div>
-            <div class="active4"><a href="gestion_typecompte.php">Type de compte</a></div>
-        </div>
-
+        <?php include('include/navbar_gestion.php');?>
+        
+        <form class="search_compte" method="get" action="<?php echo $_SERVER['PHP_SELF'];?>">
+                <label for=""><input type="text" name="nom" id="nom"/></label>
+                <button type="submit" name="search" value="ok" ><?php echo $search ;?></button>
+            </form>
         <!------------------------------>
         <!-- La table compte -->
         <!------------------------------>
@@ -74,9 +83,19 @@
                             // $bdd -> exec ("DELETE FROM film WHERE nom_film ='".$_GET['nom_film']."'");
 
                             //----------------------------------
+                            //---Requête pour la recherche------
+                            //----------------------------------
+                            
+                            if(isset($_GET['nom']))
+                            $req = $bdd->prepare("SELECT c.nom,t.nom_typecompte,c.mdp FROM compte as c, type_compte as t WHERE c.id_typecompte=t.id_typecompte AND nom LIKE '%".$_GET['nom']."%' ORDER BY nom ");
+                            
+                            
+                            else
+                            
+                            //----------------------------------
                             //------ Requête de liste
                             //----------------------------------
-                            $req = $bdd->prepare("SELECT c.nom,t.nom_typecompte,c.mdp FROM compte as c, type_compte as t WHERE c.id_typecompte=t.id_typecompte");
+                            $req = $bdd->prepare("SELECT c.nom,t.nom_typecompte,c.mdp FROM compte as c, type_compte as t WHERE c.id_typecompte=t.id_typecompte ORDER BY nom");
                             $req -> execute();
 
                             //----------------------------------
@@ -118,6 +137,12 @@
         <footer></footer>
     
     </div> 
+    <!-------------------------------->
+    <!-- scripts -->
+    <!-------------------------------->
+    <script src="js/jquery.js"></script>
+    <script src="js/deconnect_gestion.js"></script>
 </body>
 </html>
+<?php include ("traitement/deconnect_gestion.php");?>
 

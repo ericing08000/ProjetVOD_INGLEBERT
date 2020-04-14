@@ -1,80 +1,40 @@
+/* -------------------------- */
 /* Body */
+/* -------------------------- */
 body{
     margin: 0;
-    padding:0;
-    
+    padding:0;   
 }
 
-/* Gestion mono page */
+/* -------------------------- */
+/* Gestion compte */
+/* -------------------------- */
 #gestion_compte{
    background:white; 
    display: flex;
    flex-direction: column;
    height: 100vh;
-   
 }
 
-/* Barre de navigation */
-.nav{
-    background: #454545;
+/* --------------------------------- */
+/* ---Rechercher et bouton actif---- */
+/* --------------------------------- */
+form.search_compte{
     display: flex;
-    width: 100%;
-    height: 70px;
-    
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
-
-    
+    margin-right: 20px;
 }
-#gestion_compte .close, h3{
-    padding: 20px;}
-
-
-
-#gestion_compte h3{
-    font-size: 25px;
-    color: white;
+.search_compte input{
+    width: 250px;
+    height: 25px;
+    margin-left: 20px;
 }
-.logout{
-    background:#8b8b8b;
-    text-align: center;
-    width: 150px;
-    padding: 10px;
-    margin-right: 10px;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-}
-.logout a{
-    text-decoration: none;
-    
-    color: white;
-}
-
-
-/* Boutons */
-.btn_gestion_compte{
-    display: flex;
-    text-align: center;
-    align-items: center;
-    width: 100%;
-    height: 80px;
-    border-width: 1px;
-    border-style: solid;
-    border-left: #d0d0d0;
-    border-right: #d0d0d0;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    
-}
-.btn_gestion_compte div{
+.search_compte button{
     background:#454545;
+    color: white;
     width: 122px;
-    padding: 10px;
+    padding: 9px;
     margin-left: 10px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -82,27 +42,25 @@ body{
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
 }
-.btn_gestion_compte a{
-    color: white;
-    text-decoration: none;
-}
-
-.btn_gestion_compte div:hover{
+.search_compte button:hover{
     background: #8b8b8b;
 }
 div.active3{
-    background:red;
+    background: red;
 }
 
+/* -------------------------- */
+/* Table des comptes */
+/* -------------------------- */
 #table_compte{
     display: flex;
     height: 100vh;
 }
-/* Table des comptes */
+
 .table_gestion_compte{
     /* background: violet; */
     width: 98.5vw;
-    height: 680px;
+    height: 640px;
     border: 1px;
     border-style: solid;
     border-color: black;
@@ -112,41 +70,50 @@ div.active3{
 }
 
 .table_gestion_compte tr:nth-child(even) {
-    background-color: #cccccc;}
+    background-color: #cccccc;
+}
 
 .table_gestion_compte .titre_film{
     text-align: left;
     padding-left: 10px;   
 }
+
 td.nom_compte{
     text-align: left;    
 }
+
 td.compte{
     text-align: center;    
 }
+
 img.edit_film, img.delete_film{
     padding: 0;
 }
+
 .table_gestion_compte .item1_compte{
     width: 1300px;
     text-align: center;
 }
+
 .table_gestion_compte .item2_compte{
     width: 200px;
     text-align: center;
 }
+
 .table_gestion_compte .item3_compte{
     width: 200px;
     text-align: center;
 }
+
 .table_gestion_compte .item4_compte{
     width: 150px;
     text-align: center;
 }
 
+/* -------------------------- */
 /* Bouton  Ajouter un film */
+/* -------------------------- */
 .btn_add_compte{
-   
     width: 100%;
     height: 100px;
     display: flex;
@@ -154,6 +121,7 @@ img.edit_film, img.delete_film{
     justify-content: end;
     align-items: center;
 }
+
 .btn_add_compte div{
     background:#454545;
     width: 170px;
@@ -175,15 +143,19 @@ img.edit_film, img.delete_film{
     background: #8b8b8b;
 }
 
+/* -------------------------- */
 /* Footer */
+/* -------------------------- */
 footer{
     background: #8b8b8b;
     width: 100%;
     height: 45px;
-    align-self: flex-end;
-    
+    align-self: flex-end;   
 }
 
+/* -------------------------- */
+/* ------Media query-------- */
+/* -------------------------- */
 @media all and (max-width:1200px){
     .btn_gestion_compte{
         height: auto;

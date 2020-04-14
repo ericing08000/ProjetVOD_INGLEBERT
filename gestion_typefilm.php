@@ -3,6 +3,14 @@
 <!-------------------------------->
 <?php
     session_start();
+
+    //Vérification pour se deconnecter et revenir à l'accueil
+    if(isset($_GET['deconnect']) == 'ok'){
+    $_session = array();
+        session_destroy();
+        header("location:index.php");
+    }
+
     // if(isset($_SESSION['nom']))
     if($_SESSION['nom'])
     {
@@ -13,6 +21,17 @@
         header("location:identifier.php");
     }
 
+    $search = ""; 
+
+    if(empty($_GET['type_film'])) {
+        $search = "Rechercher";
+    }
+    else
+    {
+        if(!empty($_GET['type_film']))
+        $search = "Afficher tout";
+    } 
+
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +39,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/navbar_gestion.css">
         <link rel="stylesheet" href="css/gestion_typefilm.css">
+        <link rel="stylesheet" href="css/deconnect_gestion.css">
         <title>Gestion : <?php echo "Bienvenue ".$_SESSION['nom'];?></title>
     </head>
 
@@ -30,28 +51,16 @@
     <!--  Gestion table type film -->
     <!------------------------------>
     <div id="gestion_typefilm" class="gestion_typefilm">
+        
         <!------------------------------>
         <!-- Barre de navigation -->
         <!------------------------------>
-        <div class="nav">
-            <div>
-                <h3>GESTION : TYPE DE FILM</h3>
-            </div>
-            <div class="logout_type">
-                <a href="#">SE DECONNECTER</a>
-            </div>
-        </div>
-
-        <!------------------------------>
-        <!-- Boutons -->
-        <!------------------------------>
-        <div class="btn_gestion_typefilm">
-            <div class="active1"><a href="gestion.php">Film</a></div>
-            <div class="active2"><a href="gestion_typefilm.php">Type de film</a></div>
-            <div class="active3"><a href="gestion_compte.php">Compte</a></div>
-            <div class="active4"><a href="gestion_typecompte.php">Type de compte</a></div>
-        </div>
-
+        <?php include('include/navbar_gestion.php');?>
+        
+            <form class="search_typefilm" method="get" action="<?php echo $_SERVER['PHP_SELF'];?>">
+                <label for=""><input type="text" name="type_film" id="type_film"/> </label>
+                <button type="submit" name="search" value="ok" ><?php echo $search ;?></button>
+            </form>
         <!------------------------------>
         <!-- La table type film -->
         <!------------------------------>
@@ -71,7 +80,14 @@
                             //----------------------------------
                             // if(isset($_GET['supp'])) 
                             // $bdd -> exec ("DELETE FROM film WHERE type_film ='".$_GET['type_film']."'");
-
+                            
+                            //----------------------------------
+                            //----Requête pour la recherche-----
+                            //----------------------------------
+                            if(isset($_GET['type_film'])) 
+                            $req = $bdd->prepare("SELECT * FROM `type_film` WHERE type_film LIKE '%".$_GET['type_film']."%' ORDER BY type_film ");
+                            
+                            else
                             //----------------------------------
                             //------ Requête de liste
                             //----------------------------------
@@ -116,6 +132,14 @@
         <footer></footer>
     
     </div> 
+
+    <!-------------------------------->
+    <!-- scripts -->
+    <!-------------------------------->
+    <script src="js/jquery.js"></script>
+    <script src="js/deconnect_gestion.js"></script>
+
 </body>
 </html>
+<?php include ("traitement/deconnect_gestion.php");?>
 

@@ -3,6 +3,14 @@
 <!-------------------------------->
     <?php
         session_start();
+        
+        //Vérification pour se deconnecter et revenir à l'accueil
+        if(isset($_GET['deconnect']) == 'ok'){
+            $_session = array();
+                session_destroy();
+                header("location:index.php");
+        }
+        
         // if(isset($_SESSION['nom']))
         if($_SESSION['nom'])
         {
@@ -13,6 +21,17 @@
             header("location:identifier.php");
         }
 
+        $search = ""; 
+
+        if(empty($_GET['type_compte'])) {
+            $search = "Rechercher";
+        }
+        else
+        {
+            if(!empty($_GET['type_compte']))
+            $search = "Afficher tout";
+        } 
+
     ?>
 
 <!DOCTYPE html>
@@ -20,9 +39,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/navbar_gestion.css">
         <link rel="stylesheet" href="css/gestion_typecompte.css">
         <link rel="stylesheet" href="css/deconnect_gestion.css">
-        <link rel="stylesheet" href="css/del_typecompte.css">
         <title>Gestion : <?php echo "Bienvenue ".$_SESSION['nom'];?></title>
     </head>
 
@@ -32,27 +51,16 @@
     <!--  Gestion table type compte -->
     <!------------------------------>
     <div id="gestion_typecompte" class="gestion_typecompte">
+        
         <!------------------------------>
         <!-- Barre de navigation -->
         <!------------------------------>
-        <div class="nav">
-            <div>
-                <h3>GESTION : TYPE COMPTE</h3>
-            </div>
-            <div class="logout_typecompte">
-                <a href="#">SE DECONNECTER</a>
-            </div>
-        </div>
+        <?php include('include/navbar_gestion.php');?>
 
-        <!------------------------------>
-        <!-- Boutons -->
-        <!------------------------------>
-        <div class="btn_gestion_typecompte">
-            <div class="active1"><a href="gestion.php">Film</a></div>
-            <div class="active2"><a href="gestion_typefilm.php">Type de film</a></div>
-            <div class="active3"><a href="gestion_compte.php">Compte</a></div>
-            <div class="active4"><a href="gestion_typecompte.php">Type de compte</a></div>
-        </div>
+            <form class="search_typecompte" method="get" action="<?php echo $_SERVER['PHP_SELF'];?>">
+                <label for=""><input type="text" name="type_compte" id="type_compte"/></label>
+                <button type="submit" name="search" value="ok" ><?php echo $search ;?></button>
+            </form>
 
         <!------------------------------>
         <!-- La table type compte -->
@@ -74,6 +82,16 @@
                             // if(isset($_GET['supp'])) 
                             // $bdd -> exec ("DELETE FROM film WHERE type_film ='".$_GET['type_film']."'");
 
+                            //----------------------------------
+                            //---Requête pour la recherche------
+                            //----------------------------------
+                            
+                            if(isset($_GET['type_compte']))
+                            $req = $bdd->prepare("SELECT * FROM type_compte WHERE nom_typecompte LIKE '%".$_GET['type_compte']."%' ORDER BY nom_typecompte ");
+                            
+                            
+                            else
+                            
                             //----------------------------------
                             //------ Requête de liste
                             //----------------------------------
@@ -123,11 +141,10 @@
     <!-- scripts -->
     <!-------------------------------->
     <script src="js/jquery.js"></script>
-    <script src="js/del_typecompte.js"></script>
     <script src="js/deconnect_gestion.js"></script>
 
 </body>
 </html>
-<?php include ("traitement/del_typecompte.php");?>
+
 <?php include ("traitement/deconnect_gestion.php");?>
 

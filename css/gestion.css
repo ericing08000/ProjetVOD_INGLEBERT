@@ -1,80 +1,40 @@
+/* ------------------------ */
 /* Body */
+/* ------------------------ */
 body{
     margin: 0;
     padding:0;
-    
 }
 
-/* Gestion mono page */
+/* ------------------------ */
+/* Gestion */
+/* ------------------------ */
 #gestion_film{
    background:white; 
    display: flex;
    flex-direction: column;
-   height: 100vh;
-   
+   height: 100vh;  
 }
 
-/* Barre de navigation */
-.nav{
-    background: #454545;
+/* --------------------------------- */
+/* ---Rechercher et bouton actif---- */
+/* --------------------------------- */
+form.search_film{
     display: flex;
-    width: 100%;
-    height: 70px;
-    
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
-
-    
+    margin-right: 20px;
 }
-#gestion_film .close, h3{
-    padding: 20px;}
-
-
-
-#gestion_film h3{
-    font-size: 25px;
-    color: white;
+.search_film input{
+    width: 250px;
+    height: 25px;
+    margin-left: 20px;
 }
-.logout{
-    background:#8b8b8b;
-    text-align: center;
-    width: 150px;
-    padding: 10px;
-    margin-right: 10px;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-}
-.logout a{
-    text-decoration: none;
-    
-    color: white;
-}
-
-
-/* Boutons */
-.btn_gestion_film{
-    display: flex;
-    text-align: center;
-    align-items: center;
-    width: 100%;
-    height: 80px;
-    border-width: 1px;
-    border-style: solid;
-    border-left: #d0d0d0;
-    border-right: #d0d0d0;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    
-}
-.btn_gestion_film div{
+.search_film button{
     background:#454545;
+    color: white;
     width: 122px;
-    padding: 10px;
+    padding: 9px;
     margin-left: 10px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -82,34 +42,31 @@ body{
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
 }
-.btn_gestion_film a{
-    color: white;
-    text-decoration: none;
-}
-
-.btn_gestion_film div:hover{
+.search_film button:hover{
     background: #8b8b8b;
 }
 div.active1{
-    background:red;
+    background: red;
 }
 
+/* ------------------------ */
+/* Table des films */
+/* ------------------------ */
 #table_film{
     display: flex;
     height: 100vh;
 }
-/* Table des films */
+
 .table_gestion_film{
     /* background: violet; */
     width: 98.5vw;
-    height: 680px;
+    height: 640px;
     border: 1px;
     border-style: solid;
     border-color: black;
     margin-top: 10px;
     margin-left: 10px;
-    overflow: auto;
-    
+    overflow: auto;   
 }
 
 .table_gestion_film tr:nth-child(even) {
@@ -117,44 +74,55 @@ div.active1{
 
 .table_gestion_film .titre_film{
     text-align: left;
-    padding-left: 10px;   
+    padding-left: 10px;
 }
+
 .table_gestion_film td{
-    text-align: center;    
+    text-align: center;
 }
+
 img.edit_film, img.delete_film{
     padding: 0;
 }
+
 .table_gestion_film .item1_film{
     width: 500px;
     text-align: center;
 }
+
 .table_gestion_film .item2_film{
     width: 200px;
     text-align: center;
 }
+
 .table_gestion_film .item3_film{
     width: 150px;
     text-align: center;
 }
+
 .table_gestion_film .item4_film{
     width: 450px;
     text-align: center;
 }
+
 .table_gestion_film .item5_film{
     width: 200px;
     text-align: center;
 }
+
 .table_gestion_film .item6_film, .item7_film{
     width: 160px;
     text-align: center;
 }
+
 .photo_film{
     width: 80px;
     height: 120px;
 }
 
+/* ------------------------ */
 /* Bouton  Ajouter un film */
+/* ------------------------ */
 .btn_add_film{
    
     width: 100%;
@@ -164,6 +132,7 @@ img.edit_film, img.delete_film{
     justify-content: end;
     align-items: center;
 }
+
 .btn_add_film div{
     background:#454545;
     width: 170px;
@@ -185,15 +154,19 @@ img.edit_film, img.delete_film{
     background: #8b8b8b;
 }
 
+/* ------------------------ */
 /* Footer */
+/* ------------------------ */
 footer{
     background: #8b8b8b;
     width: 100%;
     height: 45px;
-    align-self: flex-end;
-    
+    align-self: flex-end; 
 }
 
+/* -------------------------- */
+/* ------Media query-------- */
+/* -------------------------- */
 @media all and (max-width:1200px){
     .btn_gestion_film{
         height: auto;
@@ -201,13 +174,20 @@ footer{
         flex-direction: column;
         width: auto;
     }
+
     .btn_gestion_film div{
         width: 98%;
         margin-bottom: 2px;
         margin-left: 0;
     }
+
     .table_gestion_film{
         width: auto;
     }
 
+    .search_film input{
+        width: 250px;
+        height: 25px;
+        margin-left: 0px;
+    }
 }
